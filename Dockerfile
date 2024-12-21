@@ -20,7 +20,8 @@ LABEL maintainer="realizelol" \
   org.label-schema.build-date="${BUILD_DATE}"
 
 # copy scripts
-COPY docker-entrypoint.sh "${PREFIX}/docker-entrypoint.sh"
+RUN  mkdir -p "${PREFIX}"
+COPY docker-*.sh "${PREFIX}"
 RUN  chmod +x "${PREFIX}"/docker-*.sh
 
 # download via repo + upgrade
